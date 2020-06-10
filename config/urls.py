@@ -4,6 +4,13 @@ from django.contrib import admin
 from django.urls import include, path
 from django.views import defaults as default_views
 from django.views.generic import TemplateView
+from rest_framework import routers
+from api_comments.apps.comments.api_view import QuestionViewSet, ChoiceViewSet, QuestionCustomView
+
+router = routers.DefaultRouter()
+router.register(r'question', QuestionViewSet)
+router.register(r'choice', ChoiceViewSet)
+router.register(r'custom_question', QuestionCustomView, basename="poll")
 
 urlpatterns = [
     path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
@@ -14,7 +21,9 @@ urlpatterns = [
     path("users/", include("api_comments.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
-    path("questions/", include('api_comments.apps.comments.urls'))
+    path("questions/", include('api_comments.apps.comments.urls')),
+    path("api/", include(router.urls)),
+    path("api/", include('rest_framework.urls', namespace='rest_framework'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

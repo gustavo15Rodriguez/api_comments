@@ -68,13 +68,14 @@ THIRD_PARTY_APPS = [
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
-    "django_celery_beat",
+    "django_celery_beat"
 ]
 
 LOCAL_APPS = [
     "api_comments.users.apps.UsersConfig",
     # Your stuff: custom apps go here
-    "api_comments.apps.comments"
+    "api_comments.apps.comments",
+    "rest_framework"
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
