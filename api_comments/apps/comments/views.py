@@ -6,7 +6,7 @@ from api_comments.apps.comments.mixins import RequireLoginMixin
 from api_comments.apps.comments.models import Question, Choice
 
 
-class IndexView(RequireLoginMixin, ListView):
+class IndexView(ListView):
     template_name = 'comments/list_comments.html'
     context_object_name = 'latest_question_list'
 
