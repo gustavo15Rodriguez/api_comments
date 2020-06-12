@@ -8,6 +8,7 @@
       <p class="card-text">
         Fecha de publicacion: {{ question.pub_date }}
       </p>
+      <a href="{% url 'vote_result' question.pk %}" tabindex="0" class="btn bg-blue-ui white read">Votar</a>
       <a href="{% url 'question_list' %}" tabindex="0" class="btn bg-blue-ui white read">Atras</a>
     </div>
   </div>

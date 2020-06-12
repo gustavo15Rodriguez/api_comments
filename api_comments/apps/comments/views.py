@@ -34,13 +34,14 @@ class VoteView(View):
 
         try:
             queryset = self.get_queryset(choice_id)
+            print(queryset)
         except(KeyError, Choice.DoesNotExist):
-            return redirect('detail', pk=question_id)
+            return redirect('question_detail', pk=question_id)
 
         else:
             queryset.votes += 1
             queryset.save()
-            return redirect('result', pk=question_id)
+            return redirect('vote_result', pk=question_id)
 
 
 class ResultView(TemplateResponseMixin, View):

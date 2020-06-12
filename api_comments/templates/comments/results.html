@@ -1,4 +1,40 @@
 {% extends "account/base.html" %}
+{% load crispy_forms_tags %}
 
 {% block content %}
+  <div class="container">
+    <div class="row blog">
+      <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-12">
+              <br>
+              <h1 class="text-center"><strong>Votos.</strong></h1>
+              <hr>
+              <div class="row">
+                <div class="col-md-4" >
+                  <div class="item-box-blog">
+                    <div class="item-box-blog-body">
+                      <form class="login" method="POST" action="{% url 'vote_result' question.pk %}">
+                        {% csrf_token %}
+                        <input type="hidden" class="form-control" value="{{ choice.pk }}">
+                        <div class="form-group">
+                          <label for="inputQuestion">Pretunta</label>
+                          <input type="text" class="form-control" id="inputQuestion" value="{{ question.question_text }}" disabled >
+                        </div>
+                        <div class="form-group">
+                          <label for="inputText">Respuesta</label>
+                          <input type="text" class="form-control" id="inputText" placeholder="Choice text...">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                        <a href="{% url 'question_list' %}" tabindex="0" class="btn bg-blue-ui white read">Cancelar</a>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
 {% endblock content %}

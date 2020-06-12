@@ -6,7 +6,7 @@ from api_comments.apps.comments.serializers import QuestionSerializer, ChoiceSer
 
 
 class QuestionViewSet(viewsets.ModelViewSet):
-    authentication_classes = AdminOnlyAuth
+    # authentication_classes = (AdminOnlyAuth, )
     queryset = Question.objects.all().order_by('-pub_date')
     serializer_class = QuestionSerializer
 
