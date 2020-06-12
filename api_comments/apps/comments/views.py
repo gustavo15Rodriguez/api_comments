@@ -6,8 +6,8 @@ from api_comments.apps.comments.mixins import RequireLoginMixin
 from api_comments.apps.comments.models import Question, Choice
 
 
-class IndexView(ListView):
-    template_name = 'comments/list_comments.html'
+class IndexView(RequireLoginMixin, ListView):
+    template_name = 'comments/list_questions.html'
     context_object_name = 'latest_question_list'
 
     def get_queryset(self):
@@ -16,12 +16,12 @@ class IndexView(ListView):
 
 class QuestionDetail(RequireLoginMixin, DetailView):
     model = Question
-    template_name = 'comments/detail_comments.html'
+    template_name = 'comments/detail_questions.html'
 
 
 class QuestionDelete(RequireLoginMixin, DeleteView):
     model = Question
-    success_url = "/polls/"
+    success_url = "question_list/"
 
 
 class VoteView(View):

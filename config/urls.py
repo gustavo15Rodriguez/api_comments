@@ -21,7 +21,7 @@ urlpatterns = [
     path("users/", include("api_comments.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
-    path("questions/", include('api_comments.apps.comments.urls')),
+    path("questions/", include('api_comments.apps.comments.urls'), name="questions"),
     path("api/", include(router.urls)),
     path("api/", include('rest_framework.urls', namespace='rest_framework'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

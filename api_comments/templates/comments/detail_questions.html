@@ -1,0 +1,14 @@
+{% extends "account/base.html" %}
+
+{% block content %}
+  <br />
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{ question.question_text }}</h5>
+      <p class="card-text">
+        Fecha de publicacion: {{ question.pub_date }}
+      </p>
+      <a href="{% url 'question_list' %}" tabindex="0" class="btn bg-blue-ui white read">Atras</a>
+    </div>
+  </div>
+{% endblock content %}
