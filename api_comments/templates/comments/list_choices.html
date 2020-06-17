@@ -11,21 +11,22 @@
               <h1 class="text-center"><strong>Preguntas.</strong></h1>
               <hr>
               <div class="row">
-                {% for question in latest_question_list %}
+                {% for choice in latest_choices_list %}
                   <div class="col-md-4" >
                     <div class="item-box-blog">
                       <div class="item-box-blog-body">
                           <!--Heading-->
                         <div class="item-box-blog-heading">
-                          <a href="{% url 'question_detail' question.pk %}" tabindex="0">
-                            <h5>{{ question.question_text }}</h5>
+                          <a href="{% url 'choice_detail' choice.pk %}" tabindex="0">
+                            <h5>{{ choice.question }}</h5>
                           </a>
                         </div>
                         <div class="item-box-blog-text">
-                          <p>Fecha de publicacion: {{ question.pub_date }}</p>
+                          <p>Respuesta: {{ choice.choice_text }}</p>
+                          <p>Votos: {{ choice.votes }}</p>
                         </div>
                         <div class="mt">
-                          <a href="{% url 'vote_result' question.pk %}" tabindex="0" class="btn bg-blue-ui white read">
+                          <a href="{% url 'vote_result' %}" tabindex="0" class="btn bg-blue-ui white read">
                             Opinar
                           </a>
                         </div>

@@ -1,0 +1,18 @@
+{% extends "account/base.html" %}
+
+{% block content %}
+  <br />
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{ choice.question }}</h5>
+      <p class="card-text">
+        Respuesta: {{ choice.choice_text }}
+      </p>
+      <p class="card-text">
+        votos: {{ choice.votes }}
+      </p>
+      <a href="{% url 'vote_result' %}" tabindex="0" class="btn bg-blue-ui white read">Votar</a>
+      <a href="{% url 'choice_list' %}" tabindex="0" class="btn bg-blue-ui white read">Atras</a>
+    </div>
+  </div>
+{% endblock content %}
